@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.github.aminullah.covid.R
+import com.github.aminullah.covid.ui.screens.country_screen.CountryActivity
+import com.github.aminullah.covid.utils.launchActivity
 import com.github.aminullah.covid.viewmodel.DashboardViewModel
 import kotlinx.android.synthetic.main.activity_dashboard_activity.*
 
@@ -26,5 +28,9 @@ class DashboardActivity : AppCompatActivity() {
             tv_deaths_number.text = it.deaths
             tv_recover_number.text = it.recovered
         })
+
+        fab_country.setOnClickListener {
+            this.launchActivity<CountryActivity>(this, false)
+        }
     }
 }

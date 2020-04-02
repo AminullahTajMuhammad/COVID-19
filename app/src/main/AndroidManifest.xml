@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".ui.screens.country_screen.CountryActivity" >
+        <activity android:name=".ui.screens.country_screen.CountryActivity">
         </activity>
         <activity android:name=".ui.screens.dash_board.DashboardActivity" />
         <activity

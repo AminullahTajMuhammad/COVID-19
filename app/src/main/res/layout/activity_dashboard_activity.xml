@@ -213,4 +213,16 @@
         android:visibility="visible"
         app:constraint_referenced_ids="card_active_cases, card_deaths_cases, card_recovered_cases, card_total_cases"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:fabCustomSize="60dp"
+        app:rippleColor="@color/colorPrimary"
+        android:src="@drawable/ic_language_black_24dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
