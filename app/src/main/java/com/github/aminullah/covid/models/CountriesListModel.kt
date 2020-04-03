@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class CountriesListModel(
     @SerializedName("countries")
-    var countries: List<CountryModel>
+    var countries: List<CountryNameModel>
 )

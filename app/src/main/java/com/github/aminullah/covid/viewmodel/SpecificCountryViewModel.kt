@@ -3,13 +3,13 @@ package com.github.aminullah.covid.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.github.aminullah.covid.models.PakistanCasesModel
-import com.github.aminullah.covid.repository.DashboardRepository
+import com.github.aminullah.covid.models.CasesCategoryModel
+import com.github.aminullah.covid.repository.SpecificCountryRepository
 
-class DashboardViewModel(application: Application): AndroidViewModel(application) {
-    private val repository = DashboardRepository(application)
+class SpecificCountryViewModel(application: Application): AndroidViewModel(application) {
+    private val repository = SpecificCountryRepository(application)
     val progressState : LiveData<Boolean>
-    val pakistanCases: LiveData<PakistanCasesModel>
+    val pakistanCases: LiveData<CasesCategoryModel>
 
     init {
         progressState = repository.progressState

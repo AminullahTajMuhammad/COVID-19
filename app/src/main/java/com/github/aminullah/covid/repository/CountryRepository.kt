@@ -3,29 +3,27 @@ package com.github.aminullah.covid.repository
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.github.aminullah.covid.models.CountriesListModel
+import com.github.aminullah.covid.models.CountryModel
 import com.github.aminullah.covid.utils.getCovidApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CountryRepository(appication: Application) {
-    var countries = MutableLiveData<CountriesListModel>()
+class CountryRepository(application: Application) {
 
-    fun allCountries() {
-        val call = getCovidApi()?.getAllCountries()
-        call?.enqueue(object : Callback<CountriesListModel> {
-            override fun onFailure(call: Call<CountriesListModel>, t: Throwable) {
-                Log.e("ERROR", t.message.toString())
+    val progress = MutableLiveData<Boolean>()
+    val countryCases = MutableLiveData<CountryModel>()
+
+    fun countryCases(countryName: String) {
+        val call = getCovidApi()?.getSelectedCountryData(countryName)
+        call?.enqueue(object : Callback<CountryModel> {
+            override fun onFailure(call: Call<CountryModel>, t: Throwable) {
+                Log.e("Country Data Error", t.message.toString())
             }
 
-            override fun onResponse(
-                call: Call<CountriesListModel>,
-                response: Response<CountriesListModel>
-            ) {
-               countries.value = response.body()
+            override fun onResponse(call: Call<CountryModel>, response: Response<CountryModel>) {
+                countryCases.value = response.body()
             }
-
         })
     }
 }

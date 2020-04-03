@@ -3,7 +3,7 @@ package com.github.aminullah.covid.models
 import com.google.gson.annotations.SerializedName
 import java.lang.StringBuilder
 
-data class PakistanCasesModel(
+data class CasesCategoryModel(
     @SerializedName("confirmed")
     var confirmed: String,
 

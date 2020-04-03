@@ -3,18 +3,22 @@ package com.github.aminullah.covid.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.github.aminullah.covid.models.CountriesListModel
+import com.github.aminullah.covid.models.CountryModel
 import com.github.aminullah.covid.repository.CountryRepository
+import com.github.aminullah.covid.repository.SpecificCountryRepository
 
 class CountryViewModel(application: Application): AndroidViewModel(application) {
-    var countries: LiveData<CountriesListModel>
-    private var repo = CountryRepository(application)
+
+    private val repository = CountryRepository(application)
+    val progressState : LiveData<Boolean>
+    val countryCases : LiveData<CountryModel>
 
     init {
-        countries = repo.countries
+        progressState = repository.progress
+        countryCases = repository.countryCases
     }
 
-    fun allCountries() {
-        repo.allCountries()
+    fun countryCases(countryName: String) {
+        repository.countryCases(countryName)
     }
 }

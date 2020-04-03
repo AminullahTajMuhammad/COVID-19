@@ -4,17 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.aminullah.covid.R
-import com.github.aminullah.covid.models.CountryModel
+import com.github.aminullah.covid.listeneres.OnItemClickListener
+import com.github.aminullah.covid.models.CountryNameModel
 
-class CountryAdapter(var context: Context): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
+class CountryAdapter(var context: Context, var onItemClick: OnItemClickListener): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
-    private var list = arrayListOf<CountryModel>()
+    var list = arrayListOf<CountryNameModel>()
 
-    fun updateData(list: ArrayList<CountryModel>) {
+    fun updateData(list: ArrayList<CountryNameModel>) {
         this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
@@ -35,5 +35,11 @@ class CountryAdapter(var context: Context): RecyclerView.Adapter<CountryAdapter.
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvCountry = itemView.findViewById<AppCompatTextView>(R.id.tv_country)
+
+        init {
+            tvCountry.setOnClickListener {
+                onItemClick.onItemClicked(adapterPosition)
+            }
+        }
     }
 }
