@@ -2,12 +2,16 @@ package com.github.aminullah.covid.ui.screens.country_screen
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.github.aminullah.covid.R
 import com.github.aminullah.covid.adapters.CountryAdapter
 import com.github.aminullah.covid.listeneres.OnItemClickListener
+import com.github.aminullah.covid.models.CountryNameModel
 import com.github.aminullah.covid.ui.screens.country_data.CountryDataActivity
 import com.github.aminullah.covid.utils.gone
 import com.github.aminullah.covid.utils.launchActivityWithData
@@ -26,6 +30,9 @@ class CountryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_country)
 
         toolbarTitle("All Countries")
+
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this).get(AllCountriesViewModel::class.java)
 
@@ -54,6 +61,14 @@ class CountryActivity : AppCompatActivity() {
         rv_country.apply {
             adapter = mAdapter
         }
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
