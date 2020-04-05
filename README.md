@@ -9,9 +9,8 @@
 A open source corona virus tracking android app build to demonstrate the use of modern **Android Application Developement Tools** .
 
 # Screenshots :movie_camera:
-|![Splashscreen](screenshots/img.png)|![Dashboard Screen](screenshots/img-1.png)|![All Countries Screen](screenshots/img-2.png)| 
+|![](screenshots/img.jpeg)|![](screenshots/img-1.jpeg)|![](screenshots/img-2.jpeg)| 
 |---|---|---|
-|![Country Data Screen](acreenshots/img-3.png)
 
 
 # API Reference
