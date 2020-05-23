@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.AdapterView
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -51,7 +52,7 @@ class CountryActivity : AppCompatActivity() {
             mAdapter.updateData(it.countries as ArrayList)
         })
 
-        mAdapter = CountryAdapter(this, object : OnItemClickListener {
+        mAdapter = CountryAdapter(this, object : AdapterView.OnItemClickListener {
             override fun onItemClicked(position: Int) {
                 val intent = Intent(this@CountryActivity, CountryDataActivity::class.java)
                 intent.putExtra("country_name", mAdapter.list[position].name)
