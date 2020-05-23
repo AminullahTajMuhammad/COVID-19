@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_view_countries.*
 
 class CountryDataActivity : AppCompatActivity() {
 
-    lateinit var viewModel: CountryViewModel
+    private lateinit var viewModel: CountryViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

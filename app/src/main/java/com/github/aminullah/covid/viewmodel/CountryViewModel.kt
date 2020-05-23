@@ -10,7 +10,7 @@ import com.github.aminullah.covid.repository.SpecificCountryRepository
 class CountryViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository = CountryRepository(application)
-    val progressState : LiveData<Boolean>
+    private val progressState : LiveData<Boolean>
     val countryCases : LiveData<CountryModel>
 
     init {
